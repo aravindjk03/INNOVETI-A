@@ -9,6 +9,7 @@
     "export": "next build",
     "deploy": "npm run build && echo 'Static files generated in ./out folder - Ready for cPanel upload!'",
     "deploy:github": "npm run build && gh-pages -d out -t true",
+    "deploy:pages": "next build && next export && gh-pages -d out",
     "lint": "next lint"
   },
   "dependencies": {
@@ -76,5 +77,8 @@
     "typescript": "5.2.2",
     "vaul": "^0.9.9",
     "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }
