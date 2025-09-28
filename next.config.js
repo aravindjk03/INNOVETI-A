@@ -13,9 +13,9 @@ const nextConfig = {
     formats: ['image/webp'],
   },
   trailingSlash: true,
-  // GitHub Pages configuration
-  basePath: process.env.NODE_ENV === 'production' ? '/INNOVETI-A' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/INNOVETI-A/' : '',
+  // GitHub Pages configuration - remove basePath for simpler deployment
+  basePath: '',
+  assetPrefix: '',
   // Optimize for static hosting
   experimental: {
     optimizePackageImports: ['framer-motion', 'lucide-react'],

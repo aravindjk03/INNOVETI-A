@@ -3,9 +3,7 @@ name: Deploy Next.js to GitHub Pages
 on:
   push:
     branches: [ master, main ]
-  pull_request:
-    branches: [ master, main ]
-
+  
   # Allow manual trigger
   workflow_dispatch:
 
