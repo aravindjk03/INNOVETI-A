@@ -5,6 +5,7 @@ import Link from 'next/link';
 // Using regular img for static export compatibility
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { getAssetPath } from '@/lib/assets';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,7 +32,7 @@ const Navbar = () => {
             >
               <div className="relative w-10 h-10 flex-shrink-0">
                 <img
-                  src="/iinvlogo.jpg"
+                  src={getAssetPath("/iinvlogo.jpg")}
                   alt="INNOVEITY Logo"
                   className="w-full h-full rounded-lg object-contain"
                 />

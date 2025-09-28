@@ -4,43 +4,44 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 // Using regular img for static export compatibility
+import { getAssetPath } from '@/lib/assets';
 
 const ImageGallery = () => {
   const [currentImage, setCurrentImage] = useState(0);
   
   const images = [
     {
-      src: '/inv1.jpg',
+      src: getAssetPath('/inv1.jpg'),
       alt: 'Change Management Classes',
       title: 'Change Management Classes',
       description: 'Empowering organizations to navigate transformation effectively'
     },
     {
-      src: '/inv2.jpg',
+      src: getAssetPath('/inv2.jpg'),
       alt: 'Information Security',
       title: 'Information Security',
       description: 'Comprehensive cybersecurity training and awareness programs'
     },
     {
-      src: '/inv3.jpg',
+      src: getAssetPath('/inv3.jpg'),
       alt: 'Industrial Safety Classes',
       title: 'Industrial Safety Classes',
       description: 'Creating safer workplaces through expert safety training'
     },
     {
-      src: '/inv4.jpg',
+      src: getAssetPath('/inv4.jpg'),
       alt: 'Tree Plantation',
       title: 'Tree Plantation',
       description: 'Environmental sustainability through afforestation initiatives'
     },
     {
-      src: '/inv5.jpg',
+      src: getAssetPath('/inv5.jpg'),
       alt: 'Titan Road Safety Programs',
       title: 'Titan Road Safety Programs',
       description: 'Promoting road safety awareness and responsible driving'
     },
     {
-      src: '/inv6.jpg',
+      src: getAssetPath('/inv6.jpg'),
       alt: 'Titan Road Safety Programs',
       title: 'Titan Road Safety Programs',
       description: 'Comprehensive road safety education and training initiatives'

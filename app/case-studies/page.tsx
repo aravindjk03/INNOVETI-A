@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Play, X } from 'lucide-react';
 import YouTube from 'react-youtube';
 import GlassCard from '@/components/GlassCard';
+import { getAssetPath } from '@/lib/assets';
 
 const CaseStudiesPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -27,7 +28,7 @@ const CaseStudiesPage = () => {
       description: 'Executed a large-scale afforestation initiative by planting 5,000 native trees, directly contributing to carbon reduction, biodiversity enhancement, and stronger ESG performance.',
       quote: '"The sustainability partnership with INNOVEITY enabled us to align our carbon reduction goals with real environmental impact. Planting 5,000 trees was not just an initiative—it became a symbol of our commitment to a greener future."',
       client: 'Biocon',
-      videoId: '/invid1.mp4', // Local video file
+      videoId: getAssetPath('/invid1.mp4'), // Local video file
       videoType: 'local', // Specify this is a local video
       results: [' 75,000–90,000 kg CO₂ absorbed annually (projected)', ' 5,000 trees planted across strategic sites', ' Community engagement & local employment generated', ' Enhanced ESG ratings & corporate reputation'],
     },
@@ -37,7 +38,7 @@ const CaseStudiesPage = () => {
       description: 'Designed and delivered a high-impact leadership development program that empowered managers to enhance decision-making, communication, and team alignment—leading to measurable organizational results.',
       quote: '"The leadership intervention by INNOVEITY inspired our managers to think bigger, lead with confidence, and align their teams towards shared goals. The program created an immediate cultural shift and lasting motivation across the organization."',
       client: 'ManufacturingCorp',
-      videoId: '/invid2.mp4', // Local video file
+      videoId: getAssetPath('/invid2.mp4'), // Local video file
       videoType: 'local', // Specify this is a local video
       results: [' 80% improvement in leadership effectiveness scores', ' Significant boost in employee engagement & motivation', ' Improved cross-functional collaboration and decision-making', ' Noticeable uplift in productivity and project delivery outcomes'],
     },

@@ -8,7 +8,7 @@
     "start": "next start",
     "export": "next build",
     "deploy": "npm run build && echo 'Static files generated in ./out folder - Ready for cPanel upload!'",
-    "deploy:github": "npm run build && gh-pages -d out -t true",
+    "deploy:github": "NODE_ENV=production npm run build && gh-pages -d out -t",
     "deploy:pages": "next build && next export && gh-pages -d out",
     "lint": "next lint"
   },
