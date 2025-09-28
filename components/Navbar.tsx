@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+// Using regular img for static export compatibility
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
@@ -30,16 +30,13 @@ const Navbar = () => {
               className="flex items-center space-x-3"
             >
               <div className="relative w-10 h-10 flex-shrink-0">
-                <Image
-                  src="/iinv_logo.jpg"
+                <img
+                  src="/iinvlogo.jpg"
                   alt="INNOVEITY Logo"
-                  fill
-                  sizes="40px"
-                  className="rounded-lg object-contain"
-                  priority
+                  className="w-full h-full rounded-lg object-contain"
                 />
               </div>
-              <span className="text-2xl font-bold text-brandGreen">
+              <span className="text-2xl font-black text-brandGreen tracking-widest uppercase drop-shadow-md">
                 INNOVEITY
               </span>
             </motion.div>

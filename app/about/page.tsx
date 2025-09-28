@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Target, Eye, Heart, Award, Users, Lightbulb } from 'lucide-react';
 import GlassCard from '@/components/GlassCard';
+import GoogleReviews from '@/components/GoogleReviews';
 
 const AboutPage = () => {
   const values = [
@@ -48,20 +49,9 @@ const AboutPage = () => {
               Our mission is to ensure that students gain access to international standards, advanced technologies, and industry practices that prepare them for the future of work.
             </p>
             
-            <p className="mb-6">
-              Through faculty development, research & development, student training, and global placement support, we bridge the gap between academia and the fast-changing global industry landscape.
+            <p>
+              Through strategic partnerships with educational institutions and industry leaders, we create comprehensive training programs, development initiatives, and sustainable solutions that bridge the gap between academia and real-world application.
             </p>
-            
-            <p className="mb-6">
-              Our strong footprints in corporates are in Digital Solutions, ERP & AI Solutions, Twinpattern Technology, Corporate Trainings, Sustainable Solutions, and Legal Audits — enabling organizations to achieve excellence while empowering students with real-world global exposure.
-            </p>
-            
-            <div className="bg-darkCyanGreen/5 rounded-lg p-6 mt-8">
-              <p className="text-xl font-semibold text-darkCyanGreen">
-                With <span className="text-brandGreen font-bold">350+ experts</span>, <span className="text-brandGreen font-bold">170+ clients</span>, and collaborations with <span className="text-brandGreen font-bold">35+ institutions</span>, INNOVEITY is shaping a global learning ecosystem that equips the next generation with skills inspired by the world's leading companies. And Top Rated On Google 
-              </p>
-            </div>
-
           </motion.div>
         </div>
       </section>
@@ -69,21 +59,34 @@ const AboutPage = () => {
       {/* Mission, Vision, Values */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-50/30 to-white/50">
         <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-darkCyanGreen mb-6">Our Foundation</h2>
+            <p className="text-xl text-darkCyanGreen/80 max-w-3xl mx-auto">
+              The core principles that guide everything we do
+            </p>
+          </motion.div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {values.map((item, index) => (
+            {values.map((value, index) => (
               <motion.div
-                key={item.title}
+                key={value.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2, duration: 0.8 }}
               >
-                <GlassCard className="text-center h-full">
+                <GlassCard className="text-center">
                   <div className="text-darkCyanGreen mb-4 flex justify-center">
-                    {item.icon}
+                    {value.icon}
                   </div>
-                  <h3 className="text-2xl font-bold text-darkCyanGreen mb-4">{item.title}</h3>
-                  <p className="text-darkCyanGreen/80">{item.description}</p>
+                  <h3 className="text-2xl font-bold text-darkCyanGreen mb-4">{value.title}</h3>
+                  <p className="text-darkCyanGreen/80">{value.description}</p>
                 </GlassCard>
               </motion.div>
             ))}
@@ -103,42 +106,41 @@ const AboutPage = () => {
           >
             <h2 className="text-4xl md:text-5xl font-bold text-darkCyanGreen mb-6">Our Journey</h2>
             <p className="text-xl text-darkCyanGreen/80 max-w-3xl mx-auto">
-              From humble beginnings to nationwide impact
+              Key milestones in our mission to transform education and industry
             </p>
           </motion.div>
 
           <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-darkCyanGreen/20 h-full"></div>
+            {/* Timeline Line */}
+            <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-0.5 h-full bg-darkCyanGreen/30"></div>
             
             {milestones.map((milestone, index) => (
               <motion.div
                 key={milestone.year}
-                className={`flex items-center mb-12 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.8 }}
+                className={`relative mb-12 ${
+                  index % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:pl-8 md:ml-auto'
+                } md:w-1/2 pl-12 md:pl-0`}
               >
-                <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
-                  <GlassCard>
-                    <div className="text-2xl font-bold text-darkCyanGreen mb-2">{milestone.year}</div>
-                    <h3 className="text-xl font-semibold text-darkCyanGreen mb-2">{milestone.title}</h3>
-                    <p className="text-darkCyanGreen/80">{milestone.description}</p>
-                  </GlassCard>
-                </div>
-                
-                {/* Timeline dot */}
-                <div className="w-4 h-4 bg-darkCyanGreen rounded-full border-4 border-white shadow-lg relative z-10"></div>
-                
-                <div className="w-1/2"></div>
+                <div className="absolute left-3 md:left-auto md:right-3 w-4 h-4 bg-darkCyanGreen rounded-full border-4 border-white shadow-lg md:transform md:translate-x-1/2"></div>
+                <GlassCard>
+                  <div className="text-2xl font-bold text-darkCyanGreen mb-2">{milestone.year}</div>
+                  <h3 className="text-xl font-semibold text-darkCyanGreen mb-2">{milestone.title}</h3>
+                  <p className="text-darkCyanGreen/80">{milestone.description}</p>
+                </GlassCard>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Team/Leadership */}
+      {/* Google Reviews */}
+      <GoogleReviews />
+
+      {/* Our Strengths */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-50/30 to-white/50">
         <div className="max-w-7xl mx-auto">
           <motion.div

@@ -11,6 +11,11 @@ export const metadata: Metadata = {
   title: 'INNOVEITY - Bridging Education & Industry',
   description: 'Leading provider of educational solutions, corporate training, and sustainable development initiatives across India.',
   keywords: 'education, industry, training, sustainability, ESG, corporate solutions',
+  icons: {
+    icon: '/iinvlogo.jpg',
+    shortcut: '/iinvlogo.jpg',
+    apple: '/iinvlogo.jpg',
+  },
 };
 
 export default function RootLayout({

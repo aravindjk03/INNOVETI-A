@@ -8,7 +8,7 @@ import GlassCard from '@/components/GlassCard';
 
 const CaseStudiesPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const [selectedVideo, setSelectedVideo] = useState<{videoId: string, videoType: string} | null>(null);
 
   const caseStudies = [
     {
@@ -16,27 +16,30 @@ const CaseStudiesPage = () => {
       title: 'Transforming Engineering Education at Shivani Engineering College',
       description: 'How we helped Shivani Engineering College enhance their curriculum and improve student placement rates by 85%.',
       quote: '"INNOVEITY\'s comprehensive faculty development program revolutionized our teaching methodologies. Our students are now industry-ready from day one."',
-      client: 'Dr. Sarah Kumar, Principal, Shivani Institute of Technology',
+      client: 'Shivani Engineering College',
       videoId: '4jwBt2ZUuRc', // YouTube video for Shivani Engineering College
+      videoType: 'youtube', // Specify this is a YouTube video
       results: ['85% increase in placement rates', '40+ industry partnerships', '500+ students trained'],
     },
     {
       id: 2,
-      title: 'Corporate ESG Transformation at TechCorp',
-      description: 'Implemented comprehensive ESG practices leading to improved sustainability metrics and stakeholder satisfaction.',
-      quote: '"The ESG consulting provided by INNOVEITY helped us achieve carbon neutrality ahead of schedule while improving employee satisfaction scores."',
-      client: 'Rajesh Patel, CEO, TechCorp Industries',
-      videoId: 'dQw4w9WgXcQ', // Replace with actual YouTube video ID
-      results: ['50% reduction in carbon footprint', '95% employee satisfaction', 'ISO 14001 certification'],
+      title: 'Corporate ESG Transformation at Biocon',
+      description: 'Executed a large-scale afforestation initiative by planting 5,000 native trees, directly contributing to carbon reduction, biodiversity enhancement, and stronger ESG performance.',
+      quote: '"The sustainability partnership with INNOVEITY enabled us to align our carbon reduction goals with real environmental impact. Planting 5,000 trees was not just an initiative—it became a symbol of our commitment to a greener future."',
+      client: 'Biocon',
+      videoId: '/invid1.mp4', // Local video file
+      videoType: 'local', // Specify this is a local video
+      results: [' 75,000–90,000 kg CO₂ absorbed annually (projected)', ' 5,000 trees planted across strategic sites', ' Community engagement & local employment generated', ' Enhanced ESG ratings & corporate reputation'],
     },
     {
       id: 3,
-      title: 'Digital Skills Initiative in Rural Communities',
-      description: 'Bridging the digital divide by training 2000+ individuals in rural areas with essential digital skills.',
-      quote: '"This program opened new opportunities for our community. Many participants now work remotely for companies across India."',
-      client: 'Priya Sharma, Community Leader, Village Development Committee',
-      videoId: 'dQw4w9WgXcQ', // Replace with actual YouTube video ID
-      results: ['2000+ individuals trained', '60% employment increase', '25 villages covered'],
+      title: 'Corporate Leadership Transformation ',
+      description: 'Designed and delivered a high-impact leadership development program that empowered managers to enhance decision-making, communication, and team alignment—leading to measurable organizational results.',
+      quote: '"The leadership intervention by INNOVEITY inspired our managers to think bigger, lead with confidence, and align their teams towards shared goals. The program created an immediate cultural shift and lasting motivation across the organization."',
+      client: 'ManufacturingCorp',
+      videoId: '/invid2.mp4', // Local video file
+      videoType: 'local', // Specify this is a local video
+      results: [' 80% improvement in leadership effectiveness scores', ' Significant boost in employee engagement & motivation', ' Improved cross-functional collaboration and decision-making', ' Noticeable uplift in productivity and project delivery outcomes'],
     },
   ];
 
@@ -128,7 +131,7 @@ const CaseStudiesPage = () => {
                     <div className="flex flex-col items-center">
                       <div className="relative bg-gray-200 rounded-lg overflow-hidden w-full max-w-md aspect-video mb-6">
                         <button
-                          onClick={() => setSelectedVideo(caseStudies[currentSlide].videoId)}
+                          onClick={() => setSelectedVideo({videoId: caseStudies[currentSlide].videoId, videoType: caseStudies[currentSlide].videoType})}
                           className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors duration-200 group"
                         >
                           <motion.div
@@ -145,7 +148,7 @@ const CaseStudiesPage = () => {
                       </div>
                       
                       <motion.button
-                        onClick={() => setSelectedVideo(caseStudies[currentSlide].videoId)}
+                        onClick={() => setSelectedVideo({videoId: caseStudies[currentSlide].videoId, videoType: caseStudies[currentSlide].videoType})}
                         className="bg-darkCyanGreen text-white px-6 py-3 rounded-lg hover:bg-darkCyanGreen/90 transition-colors duration-200 flex items-center"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
@@ -213,7 +216,18 @@ const CaseStudiesPage = () => {
                 <X className="w-5 h-5" />
               </button>
               <div className="aspect-video">
-                <YouTube videoId={selectedVideo} opts={{ ...opts, width: '100%', height: '100%' }} />
+                {selectedVideo.videoType === 'youtube' ? (
+                  <YouTube videoId={selectedVideo.videoId} opts={{ ...opts, width: '100%', height: '100%' }} />
+                ) : (
+                  <video
+                    className="w-full h-full rounded-lg"
+                    controls
+                    autoPlay
+                    src={selectedVideo.videoId}
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                )}
               </div>
             </motion.div>
           </motion.div>

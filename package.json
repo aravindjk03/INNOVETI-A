@@ -6,6 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "export": "next build",
+    "deploy": "npm run build && echo 'Static files generated in ./out folder - Ready for cPanel upload!'",
+    "deploy:github": "npm run build && gh-pages -d out -t true",
     "lint": "next lint"
   },
   "dependencies": {

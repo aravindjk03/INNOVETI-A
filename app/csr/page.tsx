@@ -47,6 +47,7 @@ const CSRPage = () => {
   const sdgGoals = [
     { number: 4, title: 'Quality Education', description: 'Ensuring inclusive and equitable quality education' },
     { number: 8, title: 'Decent Work', description: 'Promoting sustained economic growth and employment' },
+    { number: 9, title: 'Industry, Innovation and Infrastructure', description: 'Building resilient infrastructure and promoting sustainable industrialization' },
     { number: 10, title: 'Reduced Inequalities', description: 'Reducing inequality within and among countries' },
     { number: 13, title: 'Climate Action', description: 'Taking urgent action to combat climate change' },
   ];
