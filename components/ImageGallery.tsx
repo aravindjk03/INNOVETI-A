@@ -74,10 +74,10 @@ const ImageGallery = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-darkCyanGreen mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Our Impact in Action
           </h2>
-          <p className="text-xl text-darkCyanGreen/80 max-w-3xl mx-auto">
+          <p className="text-xl text-white/80 max-w-3xl mx-auto">
             Witness the transformation we bring to educational institutions and industries
           </p>
         </motion.div>
